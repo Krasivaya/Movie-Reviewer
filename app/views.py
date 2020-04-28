@@ -6,3 +6,8 @@ from app import app
 def index():
     message = 'Hello world'
     return render_template('index.html', message = message)
+
+#Dynamic Routes
+@app.route('/movie/<int:movie_id>')
+def movie(movie_id):
+    return render_template('movie.html', id = movie_id)
