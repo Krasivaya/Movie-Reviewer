@@ -1,8 +1,8 @@
 from flask import render_template
-from app import app
+from . import main
 
 #Errors
-@app.errorhandler(404)
+@main.app_errorhandler(404)
 def four_o_four(error):
     return render_template(
         'fourOfour.html'
