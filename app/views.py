@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_movies
+from .request import get_movies, get_movie
 
 #Views
 @app.route('/')
@@ -16,7 +16,12 @@ def index():
         upcoming = upcoming_movies,
         now_showing = now_showing_movies)
 
-#Dynamic Routes
-@app.route('/movie/<int:movie_id>')
-def movie(movie_id):
-    return render_template('movie.html', id = movie_id)
+#Movie details
+@app.route('/movie/<int:id>')
+def movie(id):
+    movie = get_movie(id)
+    title = f'{movie.title}'
+    return render_template(
+        'movie.html', 
+        title = title,
+        movie = movie)
