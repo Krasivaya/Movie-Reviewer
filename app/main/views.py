@@ -5,7 +5,7 @@ from .forms import ReviewForm
 from . import main
 
 # HomePage
-@main.route('/')
+@main.route('/') 
 def index():
     # Get Movie Categories
     popular_movies = get_movies('popular')
