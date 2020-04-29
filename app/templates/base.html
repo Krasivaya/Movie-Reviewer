@@ -1,5 +1,14 @@
 {% extends 'bootstrap/base.html' %}
 
+<!-- Title block -->
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Welcome to the best Movie Review website online
+    {% endif %}
+{% endblock %}
+
 <!-- Navbar block -->
 {% block navbar %}
     {% include 'navbar.html' %}
