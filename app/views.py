@@ -34,10 +34,13 @@ def index():
 def movie(id):
     movie = get_movie(id)
     title = f'{movie.title}'
+    reviews = Review.get_reviews(movie.id)
     return render_template(
         'movie.html', 
         title = title,
-        movie = movie)
+        movie = movie,
+        reviews = reviews
+    )
 
 # Movie Search
 @app.route('/search/<movie_name>')
