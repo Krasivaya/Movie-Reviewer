@@ -11,6 +11,7 @@
                     <h3>{{ movie.title }}</h3>
                     <p class="overview">{{ movie.overview }}</p>
                     <p class="ratings">{{ movie.vote_average }} <br> - <i>{{ movie.vote_count }}</i></p>
+                    <a href="/movie/review/new/{{ movie.id }}" class="ratings">Write a new review</a>
                 </div>
             </div>
         </div>
