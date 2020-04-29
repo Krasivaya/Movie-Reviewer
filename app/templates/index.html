@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
+    <!-- style block -->
+    {% block style %}
+        {{ super() }}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.html') }}">
+    {% endblock %}
+
     <!-- Content block -->
     {% block content %}
         <!-- Popular movie section  -->
