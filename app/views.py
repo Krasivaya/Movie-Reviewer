@@ -6,9 +6,15 @@ from .request import get_movies
 @app.route('/')
 def index():
     popular_movies = get_movies('popular')
-    print(popular_movies)
+    upcoming_movies = get_movies('upcoming')
+    now_showing_movies = get_movies('now_playing')
     title = 'Home - Welcome to the best Movie Review Website Online'
-    return render_template('index.html', title = title, popular = popular_movies)
+    return render_template(
+        'index.html', 
+        title = title, 
+        popular = popular_movies,
+        upcoming = upcoming_movies,
+        now_showing = now_showing_movies)
 
 #Dynamic Routes
 @app.route('/movie/<int:movie_id>')
