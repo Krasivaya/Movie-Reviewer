@@ -1,1 +1,6 @@
-<h1>Hello World {{ id }}</h1>
+{% extends 'base.html' %}
+
+    <!-- Content block -->
+    {% block content %}
+        <h1>Movie {{ id }}</h1>
+    {% endblock %}
