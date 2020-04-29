@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 
     <!-- Content block -->
     {% block content %}
@@ -13,6 +14,18 @@
                     <p class="ratings">{{ movie.vote_average }} <br> - <i>{{ movie.vote_count }}</i></p>
                     <a href="/movie/review/new/{{ movie.id }}" class="ratings">Write a new review</a>
                 </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="row">
+                <h1>Reviews</h1>
+                <hr>
+                {% if reviews %}
+                    {{ macro.displayReviews(reviews) }}
+                {% else %}
+                    <h3 class="text-center">This movie has no reviews</h3>
+                    <a href="/movie/review/new/{{movie.id}}" class="btn btn-success btn-lg text-center">Write a new review</a>
+                {% endif %}
             </div>
         </div>
     {% endblock %}
