@@ -5,6 +5,11 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255))
 
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(255))
+
 class Movie:
     def __init__(self, id, title, overview, poster, vote_average, vote_count):
         self.id = id
