@@ -15,6 +15,10 @@ class Config():
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
+    # Simple mde configuration
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
+
 class ProdConfig(Config):
     pass
 
