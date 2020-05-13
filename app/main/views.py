@@ -5,6 +5,7 @@ from .forms import ReviewForm, UpdateProfile
 from .. import db, photos
 from . import main
 from flask_login import login_required, current_user
+import markdown2
 
 # HomePage
 @main.route('/') 
@@ -77,6 +78,21 @@ def new_review(id):
         title = title,
         review_form = form,
         movie = movie
+    )
+
+# Movie Single Review
+@main.route('/review/<int:id>')
+def single_review(id):
+    review = Review.query.get(id)
+    if review is None:
+        abort(404)
+    
+    format_review = markdown2.markdown(review.movie_review, extras = ['code-friendly', 'fenced-code-blocks'])
+
+    return render_template(
+        'review.html',
+        review = review,
+        format_review = format_review
     )
 
 # User Profile
